@@ -320,7 +320,10 @@ module.exports = function(webpackEnv) {
                 eslintPath: require.resolve('eslint'),
                 // @remove-on-eject-begin
                 baseConfig: {
-                  extends: [require.resolve('@mysense/eslint-config-frontend')],
+                  extends: [
+                    require.resolve('eslint-config-react-app'),
+                    require.resolve('@mysense/eslint-config-frontend'),
+                  ],
                 },
                 ignore: false,
                 useEslintrc: false,
