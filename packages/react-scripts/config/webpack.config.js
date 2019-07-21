@@ -389,7 +389,9 @@ module.exports = function(webpackEnv) {
                       },
                     },
                   ],
-                ],
+                  isEnvProduction &&
+                    require.resolve('babel-plugin-transform-remove-console'),
+                ].filter(Boolean),
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
                 // directory for faster rebuilds.
