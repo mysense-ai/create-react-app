@@ -438,6 +438,26 @@ module.exports = function(webpackEnv) {
                   ],
                   isEnvProduction &&
                     require.resolve('babel-plugin-transform-remove-console'),
+                  [
+                    require.resolve('babel-plugin-import'),
+                    {
+                      libraryName: '@material-ui/core',
+                      // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+                      libraryDirectory: 'esm',
+                      camel2DashComponentName: false,
+                    },
+                    'core',
+                  ],
+                  [
+                    require.resolve('babel-plugin-import'),
+                    {
+                      libraryName: '@material-ui/icons',
+                      // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+                      libraryDirectory: 'esm',
+                      camel2DashComponentName: false,
+                    },
+                    'icons',
+                  ],
                 ].filter(Boolean),
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
